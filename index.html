@@ -1,0 +1,428 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
+<link rel="shortcut icon" href="/media/root/logo.png" type="https://voltra.xyz/image/x-icon">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+<link href="https://voltra.xyz//cdn.jsdelivr.net/npm/@sweetalert2/theme-dark@4/dark.css" rel="stylesheet">
+<script src="https://voltra.xyz//cdn.jsdelivr.net/npm/sweetalert2@10/dist/sweetalert2.min.js"></script>
+
+<link rel="stylesheet" href="https://voltra.xyz/css/overwrite.css">
+<script src="https://voltra.xyz/js/_popup.js"></script>
+<script src="https://voltra.xyz/js/loaderCore.js"></script>
+<link rel="stylesheet" href="https://voltra.xyz/css/loader.css">
+<link rel="stylesheet" href="https://voltra.xyz/css/user.badges.css">
+
+<meta property="og:type" content="website">
+<meta name="distribution" content="global">
+<meta name="rating" content="general">
+<meta name='dmca-site-verification' content='WThzR0h3QkVIUWFYWHBUQzFmci8zdz090' />
+<meta name="description" content="Create your own guild for your friend group or community!">
+<meta name="keywords" content="ChatComm, chatcomm, chatcomm.net, ChatComm.net, friends, Friends, Roleplay, RP, rp, social, media">
+<meta name="author" content="ChatComm">
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/3.1.3/socket.io.js" integrity="sha512-2RDFHqfLZW8IhPRvQYmK9bTLfj/hddxGXQAred2wNZGkrKQkLGj8RCkXfRJPHlDerdHHIzTFaahq4s/P4V6Qig==" crossorigin="anonymous"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-HYLHJ5B5GX"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-HYLHJ5B5GX');
+    </script>
+<script data-ad-client="ca-pub-8865979336515219" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+            function getUserSID(){
+                console.warn('Do never copy any of the code of this website! It contains a generated SID that can grant access to your account!');
+                return "Mjg2NzM2MjMxMjIyNDg3MTkzOQ==.gi98I.g7YKyYUvQb63IbD8AE3BE5K0";
+            }
+            function getWSConn(){
+                let WS_connectionString = window.location.hostname;
+
+                if(WS_connectionString == 'localhost'){
+                    console.log('Development host...');
+                    WS_connectionString = window.location.hostname + ':' + window.location.port;
+                }
+
+                console.log('Connection str passed.', WS_connectionString)
+                return WS_connectionString;
+            }
+            (()=>{
+                const userIsBot = "false";
+                if(userIsBot == "true") window.location.href = 'https://voltra.xyz/logout';
+                console.log('[CHECK | BOT] User is not a bot. Websocket may be connected.')
+            })()
+
+            const getAnnouncement_mod = () => {
+                fetch(`https://voltra.xyz/mod/announcements?sid=${getUserSID()}`)
+                    .then(res => res.json())
+                        .then(data => {
+                            let err = false;
+                            if(data.code !== 200) err = true;
+
+                            const title = err ? "Error" : "Announcement";
+
+                            if(data.msg == "none") return;
+
+                            Swal.fire({
+                                title,
+                                html: data.msg
+                            })
+                        });
+            }
+            getAnnouncement_mod()
+
+        </script>
+<script src="https://voltra.xyz/js/ws.js"></script>
+
+
+<meta name="theme-color" content="#343a40">
+<title>ChatComm | Terms of Service</title>
+<link rel="icon" href="https://cdn.discordapp.com/attachments/798406727691141130/836350615332323389/epic-coffee.png" type="image/png" sizes="16x16">
+</head>
+<style>
+    .fas.fa-ban {
+        color: red;
+        text-shadow: 0px 0px 3px rgba(255, 0, 0, 1);
+    }
+    .fas.fa-trash-alt {
+        color: orange;
+        text-shadow: 0px 0px 3px rgba(255, 166, 0, 0.767);
+    }
+    hr {
+        border-top: 1px solid hsla(0, 0%, 100%, .2);
+    }
+</style>
+<script>
+
+        function escapeHtml(unsafe) {
+            return unsafe
+                .replace(/&/g, "&amp;")
+                .replace(/</g, "&lt;")
+                .replace(/>/g, "&gt;")
+                .replace(/"/g, "&quot;")
+                .replace(/'/g, "&#039;");
+        }
+
+    function notImplemented(){
+        Toast.fire({
+            title: "This feature has yet to be implemented!",
+            icon: "warning"
+        })
+    }
+
+    function getWebsiteUrl(){
+        let core_websiteURL = window.location.hostname;
+
+        if(core_websiteURL == 'localhost'){
+            console.log('Development host...');
+            core_websiteURL = window.location.hostname + ':' + window.location.port;
+        }
+        return core_websiteURL;
+    }
+</script>
+<script>
+
+        (function(){
+            const disableStatus = 'false';
+            if(disableStatus == 'true') window.location.href = 'https://voltra.xyz/logout';
+        })()
+
+    </script>
+<script>
+    // Handle img errors...
+    function _imgError(elId){
+        const errorElement = document.getElementById(elId);
+        if(errorElement){
+            console.log(`[IMG-ERR | HANDLED](${elId})`);
+            errorElement.src = 'https://voltra.xyz//voltra.xyz/media/user/1618256387298Z5Ygx6bwrunknown.png'
+        } else {
+            console.warn(`[IMG-ERR | FAILED](${elId})`);
+        }
+    }
+
+</script>
+<body style="background-color: #252a2e !important;">
+<!--<<div id="loader"></div>
+<span id="page_main" style="display:none;">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<a href="/">
+<span class="navbar-brand mb-0 h1">
+Voltra
+</span>
+</a>
+<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+<span class="navbar-toggler-icon"></span>
+</button>
+<div class="collapse navbar-collapse" id="navbarSupportedContent">
+<ul class="navbar-nav mr-auto">
+<li class="nav-item active">
+<a class="nav-link" href="/">Home</a>
+</li>
+<li class="nav-item dropdown">
+<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+Austin <span class="badge badge-danger" id="user_notifyCounter">0</span>
+</a>
+<div class="dropdown-menu bg-dark" aria-labelledby="navbarDropdown">
+<a class="dropdown-item text-light bg-dark" href="/@me">Profile</a>
+<a class="dropdown-item text-light bg-dark" data-toggle="modal" data-target=".bd-example-modal-lg" href="javascript:void(0)">
+<span class="badge badge-danger" id="user_notifyCounter-2">0</span> Alerts
+</a>
+<a class="dropdown-item text-light bg-dark" href="https://voltra.xyz/@me/guilds">Guilds</a>
+<a class="dropdown-item text-light bg-dark" href="https://voltra.xyz/@me/pms">Chats</a>
+<a class="dropdown-item text-light bg-dark" href="https://voltra.xyz/@me/settings">Settings</a>
+<div class="dropdown-divider"></div>
+<a class="dropdown-item text-light bg-dark" href="https://voltra.xyz/logout">Logout</a>
+</div>
+</li>
+</ul>
+</div>
+</nav>
+<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+<div class="modal-dialog modal-lg">
+<div class="modal-content text-light bg-dark">
+<div class="modal-header" style="border-color: #6c757d !important;">
+<h5 class="modal-title" id="exampleModalLabel">Alerts</h5>
+<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+<span aria-hidden="true" style="color: white;">&times;</span>
+</button>
+</div>
+<div class="modal-body" id="notifications_holder">
+</div>
+</div>
+</div>
+</div>-->
+<script>getNotifications()</script>
+<script src="https://voltra.xyz/js/alertHandler.js"></script>
+<div class="_pageContent mt-4" id="cont_page_main_body">
+<div class="page-wrap d-flex flex-row align-items-center text-light mt-5" id="cont_page_main_body2">
+<div class="container">
+<h3 class="text-muted text-uppercase">
+Terms of Service
+</h3>
+<h4 class="lead text-muted">
+Our terms and conditions
+</h4>
+<hr>
+<p>
+The following terms are also guidelines that everyone on ChatComm or it's associated services need to follow.
+<br>
+If these terms are disagreed with then you will not be allowed from using ChatComm or any other service associated
+with it. <br>
+The recommended age that you need to be to use ChatComm is <strong>13</strong> years or older!
+<br>
+<br>
+By making an account on ChatComm you've agreed that you are responsible for the agreement with any applicable local laws.
+</p>
+<ul>
+<li><a href="#general">General rules</a></li>
+<li><a href="#nsfw">NSFW Content</a></li>
+<li><a href="#gore">Gore Content</a></li>
+<li><a href="#illegal">Unsafe/Illegal</a></li>
+<li><a href="#links">Links</a></li>
+<li><a href="#copyright">Copyright</a></li>
+</ul>
+<h5 class="text-muted mt-3" id="general">
+General
+</h5>
+<hr>
+<ul>
+<li>
+Never share your credentials with anyone!
+</li>
+<li>
+Self botting is <strong>not</strong> allowed!
+</li>
+<li>
+Do not share malicious content with a other user.
+</li>
+<li>
+Respect others.
+</li>
+<li>
+Follow the law that your country has.
+</li>
+<li>
+Raiding any community/Guild inside or outside of ChatComm will get your account disabled.
+</li>
+<li>
+Please use common sense.
+</li>
+</ul>
+<h5 class="text-muted mt-3" id="nsfw">
+NSFW Content
+</h5>
+<hr>
+<ul>
+<li>
+We do not scan all content on NSFW content, so please keep nsfw content in non-listed guilds and in <span data-toggle="tooltip" title="NSFW marked channels" class="badge badge-danger">NSFW</span> channels.
+</li>
+<li>
+Protection of Teenagers:
+<ul>
+<li>Users under the age of 18 are to follow more strict guidelines on NSFW content!</li>
+<li>
+ We do not allow any suggestive content from a user who is under the age of 18 years, even when not intended to be suggestive.
+<br>
+Users are not allowed to post content that includes:
+<ul>
+<li>
+Dancing in a sexual manner.
+</li>
+<li>
+Making sexual facial expressions or gestures.
+</li>
+<li>
+Appearing in revealing clothing.
+</li>
+<li>
+Posing sexual content along with imagery of teenagers.
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h5 class="text-muted mt-3" id="gore">
+Gore Content
+</h5>
+<hr>
+<p>
+Any content that promotes:
+<ul>
+<li>Self-Harm</li>
+<li>Gore Content</li>
+<li><a href="javascript:void(0)" data-toggle="tooltip" title="Gore content that shows people or animals being tortured, hurt, dismembered">Actual</a> Gore</li>
+<li>If it invokes the feeling of shock, sickness or pain in the viewer</li>
+<li>If it shows bodily fluids</li>
+<li>If it's historical or famous, etc.</li>
+</ul>
+</p>
+<h5 class="text-muted mt-3" id="illegal">
+Unsafe/Illegal
+</h5>
+<hr>
+<ul>
+<li>Content that shows <a href="javascript:void(0)" data-toggle="tooltip" title="In real life content">actual</a> illegal, unsafe or criminal activity is not allowed on ChatComm, we have the following examples:
+<ul>
+<li>
+Anything that could harm minors
+</li>
+<li>Dangerous activities including:
+<ul>
+<li>
+Alcohol
+</li>
+<li>
+Drugs
+</li>
+<li>
+Weapons
+</li>
+<li>
+Etc.
+</li>
+</ul>
+</li>
+<li>
+Violent crimes or terrorism.
+</li>
+<li>
+Self-harm or harm to others, etc.
+</li>
+</ul>
+</li>
+<li>
+<strong>Disclaimer:</strong> Roleplay, TV shows or any other media such as fictional content of the above are not generally considered a violation of these guidelines.
+</li>
+</ul>
+<h5 class="text-muted mt-3" id="links">
+Links
+</h5>
+<hr>
+<p>
+ChatComm does not check links sent by users, we are not responsible for the contents of any external contents, if the link is harmfull in any way then please report it to <a href="https://discord.gg/CD4cRjTzCK" target="_blank" data-toggle="tooltip" title="Contact Support">us</a>.
+</p>
+<h5 class="text-muted mt-3" id="copyright">
+Copyright
+</h5>
+<hr>
+<ul>
+<li>
+You are allowed to use the name ChatComm
+</li>
+</ul>
+<p>
+We do not allow the impersonation of <strong>chatcomm.net</strong>, the following rules for our Copyright rules:
+<ul>
+<li>
+We use the name <strong>ChatComm</strong> as an alias of <strong>chatcomm.net</strong> all names that contain <strong>ChatComm</strong> are mostly an alias of <strong>chatcomm.net</strong>.
+</li>
+<li>
+If you believe that someone has copied your content that in any way violates a copyright infrigement, please report this by contacting us on <a href="https://discord.gg/CD4cRjTzCK" target="_blank">Discord</a>.
+</li>
+</ul>
+</p>
+</div>
+</div>
+</div>
+</div>
+<br>
+<br>
+<br>
+<br>
+<script>
+  $(document).ready(function(){
+    $('[data-toggle="tooltip"]').tooltip();   
+  });
+</script>
+<!--<footer class="bg-dark text-center text-lg-start text-light clear-top">
+<div class="container p-4">
+<div class="row">
+<div class="col-lg-6 col-md-12 mb-4 mb-md-0">
+<h5 class="text-uppercase text-muted">About</h5>
+<p>
+We empower the ability so you can talk to your friends or team in real time! Discuss about your favorite topic!
+</p>
+</div>
+<div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+<h5 class="text-uppercase text-muted">Company</h5>
+<ul class="list-unstyled mb-0">
+<li>
+<a target="_blank" href="https://voltra.xyz/tos" class="text-light">Terms of Service</a>
+</li>
+<li>
+<a target="_blank" href="https://voltra.xyz/team" class="text-light">Our Team</a>
+</li>
+<li>
+<a href="https://voltra.xyz/dev/apps" class="text-light">Developer Apps</a>
+</li>
+</ul>
+</div>
+<div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+<h5 class="text-uppercase text-muted">Socials</h5>
+<ul class="list-unstyled">
+<li>
+<a target="_blank" href="https://voltra.xyz/s/discord" class="text-light">Discord</a>
+</li>
+<li>
+<a target="_blank" href="https://voltra.xyz/s/github" class="text-light">Github</a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+<a href="//www.dmca.com/Protection/Status.aspx?ID=08fac168-0f0c-4d9c-b01b-4778b2a5ab3a" title="DMCA.com Protection Status" class="dmca-badge"> <img src="https://images.dmca.com/Badges/DMCA_logo-grn-btn100w.png?ID=08fac168-0f0c-4d9c-b01b-4778b2a5ab3a" alt="DMCA.com Protection Status" /></a> <script src="https://images.dmca.com/Badges/DMCABadgeHelper.min.js"> </script>
+© voltra.xyz | Powered by: <a href="https://help.seer-software.com" target="_blank" rel="noopener noreferrer">Seer-Software.com</a>
+</div>
+</footer>-->
+</span>
+</body>
+</html>
